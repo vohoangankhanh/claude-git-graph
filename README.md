@@ -26,6 +26,14 @@ Answer `y` to add the marketplace, then pick a scope (user scope = every session
   commit hash and file names are clickable.
 - The graph refreshes every 15 s while the pane is open, and after any `git` command Claude runs.
 
+## What it runs and sends
+
+- Runs only local, read-only `git` commands in the session's working directory:
+  `git log --graph` (last 80 commits, `--all` when toggled) and `git show --name-status` /
+  `git show -- <file>` for the commit or file you click.
+- Sends nothing over the network, reads no credentials, and writes no files. All state (the graph,
+  open commit, column widths) lives in the Claude Code session's plugin state.
+
 ## Notes
 
 - Shows the last 80 commits of the session's working directory.
