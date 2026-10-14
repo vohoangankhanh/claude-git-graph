@@ -1,4 +1,4 @@
-# git-graph — a git commit graph pane for Claude Code
+# Commit Lanes — a git commit graph pane for Claude Code
 
 A live **git log graph** inside Claude Code, like VS Code's Git Graph: colored lanes, branch/tag
 badges, author and date columns. Click a commit to list its files, click a file to see its diff.
@@ -8,7 +8,7 @@ badges, author and date columns. Click a commit to list its files, click a file 
 At the prompt of a Claude Code session:
 
 ```
-/plugin install git-graph --marketplace vohoangankhanh/claude-git-graph
+/plugin install commit-lanes --marketplace vohoangankhanh/claude-git-graph
 ```
 
 Answer `y` to add the marketplace, then pick a scope (user scope = every session).
