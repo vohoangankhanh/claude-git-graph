@@ -24,7 +24,7 @@ const MAX_LINKS = 200
 const MAX_MD_CHARS = 9500
 const FILE_LINK = 'https://git-graph.invalid/file/'
 const VIEW_LABEL: Record<GraphView, string> = { grid: 'Grid', graph: 'Image', mono: 'Plain', color: 'Color' }
-const graph = atom({ plugin: 'git-graph', key: 'graph' } as const, {
+const graph = atom({ plugin: 'commit-lanes', key: 'graph' } as const, {
   lines: [],
   at: '',
   error: '',
@@ -32,7 +32,7 @@ const graph = atom({ plugin: 'git-graph', key: 'graph' } as const, {
 } as GraphSnapshot)
 
 /** Pane đang mở hay không — cho nút bật/tắt trên ô chat (desktop). */
-const paneOpen = atom({ plugin: 'git-graph', key: 'paneOpen' } as const, false)
+const paneOpen = atom({ plugin: 'commit-lanes', key: 'paneOpen' } as const, false)
 
 const openPane = async ($: EngineInterface) => {
   await update($, paneOpen, () => true)
