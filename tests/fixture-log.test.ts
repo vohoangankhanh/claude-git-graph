@@ -14,7 +14,7 @@ test('80 commits: clicks on deep rows/lanes work; a 144-file commit still render
   on('ui.open', async () => ({ value: { isPlaced: true } }))
   await $.command.run({ command: 'git-graph' } as never)
   const ui = await $.ui.mount({
-    plugin: 'git-graph',
+    plugin: 'commit-lanes',
     surface: 'desktop',
     component: 'Pane',
     props: {} as never,

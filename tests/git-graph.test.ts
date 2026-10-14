@@ -28,7 +28,7 @@ const mockGit = (on: Parameters<TestBody>[1], shows: string[][]) => {
 
 const mountDesktop = ($: Parameters<TestBody>[0]) =>
   $.ui.mount({
-    plugin: 'git-graph',
+    plugin: 'commit-lanes',
     surface: 'desktop',
     component: 'Pane',
     props: {} as never,
@@ -64,12 +64,12 @@ test('pressing a commit row on the terminal lists its files, pressing again clos
   await $.command.run({ command: 'git-graph' } as never)
   await render($, 'terminal')
 
-  await $.ui.press({ plugin: 'git-graph', key: '677b60b', surface: 'terminal' })
+  await $.ui.press({ plugin: 'commit-lanes', key: '677b60b', surface: 'terminal' })
   expect(shows[0]?.slice(-1)).toEqual(['677b60b'])
   const opened = await render($, 'terminal')
   for (const piece of ['src/a.ts', 'src/b.ts', 'old.ts → new.ts']) expect(opened.includes(piece)).toBe(true)
 
-  await $.ui.press({ plugin: 'git-graph', key: '677b60b', surface: 'terminal' })
+  await $.ui.press({ plugin: 'commit-lanes', key: '677b60b', surface: 'terminal' })
   expect((await render($, 'terminal')).includes('src/a.ts')).toBe(false)
 })
 
@@ -97,17 +97,17 @@ test('pressing a file shows its diff (hunks only) inside the graph pane, ← Gra
   mockGit(on, shows)
   await $.command.run({ command: 'git-graph' } as never)
   await render($, 'terminal')
-  await $.ui.press({ plugin: 'git-graph', key: '677b60b', surface: 'terminal' })
+  await $.ui.press({ plugin: 'commit-lanes', key: '677b60b', surface: 'terminal' })
   await render($, 'terminal')
 
-  await $.ui.press({ plugin: 'git-graph', key: 'file:src/a.ts', surface: 'terminal' })
+  await $.ui.press({ plugin: 'commit-lanes', key: 'file:src/a.ts', surface: 'terminal' })
   expect(shows[1]?.slice(-3)).toEqual(['677b60b', '--', 'src/a.ts'])
   // Diff hiện ngay trong pane graph, có nút quay lại.
   const diff = await render($, 'terminal')
   expect(diff.includes('+const y = 3')).toBe(true)
   expect(diff.includes('diff --git')).toBe(false)
   expect(diff.includes('← Graph')).toBe(true)
-  await $.ui.press({ plugin: 'git-graph', key: '← Graph', surface: 'terminal' })
+  await $.ui.press({ plugin: 'commit-lanes', key: '← Graph', surface: 'terminal' })
   expect((await render($, 'terminal')).includes('677b60b')).toBe(true)
 })
 
@@ -215,7 +215,7 @@ test('desktop: the button above the prompt toggles the pane; the pane × resets 
     return { value: undefined }
   })
   await $.command.run({ command: 'git-graph' } as never)
-  const band = await $.ui.mount({ plugin: 'git-graph', surface: 'desktop', component: 'AbovePrompt', props: { hasSurvey: false, isWorking: false, maxRows: 10 } as never })
+  const band = await $.ui.mount({ plugin: 'commit-lanes', surface: 'desktop', component: 'AbovePrompt', props: { hasSurvey: false, isWorking: false, maxRows: 10 } as never })
   expect(JSON.stringify(await band.drawn()).includes('⎇ Hide Git graph')).toBe(true)
 
   await band.press({ key: 'git-graph-toggle' })
