@@ -1,0 +1,20 @@
+{
+  "name": "git-graph",
+  "version": "0.2.0",
+  "description": "Live git commit graph pane for Claude Code: clickable commits, inline file list and diffs, resizable columns",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Khanh Vo",
+    "url": "https://github.com/vohoangankhanh"
+  },
+  "homepage": "https://github.com/vohoangankhanh/claude-git-graph",
+  "repository": "https://github.com/vohoangankhanh/claude-git-graph",
+  "license": "MIT",
+  "keywords": [
+    "git",
+    "graph",
+    "log",
+    "history",
+    "pane"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "claude-git-graph",
+  "owner": {
+    "name": "Khanh Vo",
+    "url": "https://github.com/vohoangankhanh"
+  },
+  "metadata": {
+    "description": "Git commit graph pane for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "git-graph",
+      "source": "./",
+      "description": "Live git commit graph pane for Claude Code: clickable commits, inline file list and diffs, resizable columns"
+    }
+  ]
+}
