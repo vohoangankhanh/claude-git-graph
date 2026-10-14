@@ -22,6 +22,6 @@ export type GraphSnapshot = {
 
 declare module 'claude-code' {
   interface PluginState {
-    'git-graph': { graph: GraphSnapshot; paneOpen: boolean }
+    'commit-lanes': { graph: GraphSnapshot; paneOpen: boolean }
   }
 }
