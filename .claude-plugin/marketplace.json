@@ -1,5 +1,5 @@
 {
-  "name": "claude-git-graph",
+  "name": "commit-lanes",
   "owner": {
     "name": "Khanh Vo",
     "url": "https://github.com/vohoangankhanh"
@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "git-graph",
+      "name": "commit-lanes",
       "source": "./",
       "description": "Live git commit graph pane for Claude Code: clickable commits, inline file list and diffs, resizable columns"
     }
